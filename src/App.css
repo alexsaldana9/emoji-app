@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.text-box {
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.App ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+
+}
+
+.App li {
+  display: inline-block;
+  margin: 20px;
+
+}
+
+.App li {
+  text-decoration: none;
+  color: black;
+}
+
+.App a:hover {
+  color: blue;
+}
+
+.nav {
+  background-color: grey;
+}
