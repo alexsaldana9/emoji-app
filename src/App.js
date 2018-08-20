@@ -17,15 +17,26 @@ class App extends Component {
     .then(response => {
       const results = response.data;
       console.log("results: ===>", results)
+      console.log("First Item: char => ", results[0].char)
+      console.log("First Item: keywords => ", results[0].keywords)
     });
   }
 
+
+
+  // function ShowResult(word){
+  //   if word == keywords {
+  //     console.log("Show list of emoji", results[i].char)
+  //   }
+  // }
+
   render() {
-    // const results = this.state.posts.map(result => {
-    //     return <Result
-    //         key={result.id}
-    //         title={result.title} />
-    //   });
+    const results = this.state.results.map(result => {
+        return <Result
+            keywords={result.keywords} />
+      });
+
+
 
     return (
       <div className="App">
@@ -41,6 +52,8 @@ class App extends Component {
                 <input type="text" className="text-box"></input>
                 <button className="text-box">Search</button>
                   <p>list of emojis</p>
+                  <p>{results}</p>
+                  <Result />
                 </section>
             </div>
     );
