@@ -24,10 +24,10 @@ class App extends Component {
 
   render() {
     const emojis = this.state.results.map((r, idx) =>
-      <div key={idx}>
-        {r.keywords}
-        {r.char}
-      </div>);
+      <li key={idx}>
+        <h2>{r.char} {r.name}</h2>
+        <p>{r.keywords}</p>
+      </li>);
 
 
     return (
@@ -43,8 +43,9 @@ class App extends Component {
         <section>
           <input type="text" className="text-box"></input>
           <button className="text-box">Search</button>
-          <p>list of emojis</p>
-          {emojis}
+          <ul className="emojis">
+            {emojis}
+          </ul>
         </section>
       </div>
     );
