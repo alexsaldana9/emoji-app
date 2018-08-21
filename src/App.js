@@ -26,6 +26,7 @@ class App extends Component {
     const emojis = this.state.results.map((r, idx) =>
       <div key={idx}>
         {r.keywords}
+        {r.char}
       </div>);
 
 
