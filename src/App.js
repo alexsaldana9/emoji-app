@@ -31,11 +31,14 @@ class App extends Component {
           let keywordString = results[i].keywords.split(" | ");
           console.log("STRING ===", keywordString);
 
-          //if (searchWord == keywordString)
           var searchWord = "pilot";
+          var options = new Array;
           for (let j =0; j < keywordString.length; j++){
             if (searchWord === keywordString[j]) {
+              console.log("Object with word => ", results[i])
               console.log("SAME WORD => ", keywordString[j]);
+              options.push(results[i]);
+              console.log("Array of Options => ", options);
             }
           }
         }
