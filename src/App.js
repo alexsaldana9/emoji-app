@@ -12,7 +12,7 @@ class App extends Component {
     }
 
     this.clearHandler = this.clearHandler.bind(this);
-  }  
+  }
 
   //https://unpkg.com/emoji.json@11.0.0/emoji.json - to get the emojis
 
@@ -25,13 +25,36 @@ class App extends Component {
         console.log("First Item: keywords => ", results[0].keywords)
 
         this.setState({results: results});
+
+        for (let i = 0; i < results.length; i++){
+          //console.log("results.keywords ==>", results[i].keywords);
+          let keywordString = results[i].keywords.split(" | ");
+          console.log("STRING ===", keywordString);
+
+          //if (searchWord == keywordString)
+          var searchWord = "pilot";
+          for (let j =0; j < keywordString.length; j++){
+            if (searchWord === keywordString[j]) {
+              console.log("SAME WORD => ", keywordString[j]);
+            }
+          }
+        }
+
+
       });
   }
 
   clearHandler() {
-    console.log("clieck clear");
-
+    console.log("clicked clear");
     this.setState({results: []});
+  }
+
+  // keywordsToArray(keywords) {
+  //   console.log("kewords to array", results.keywords);
+  // }
+
+  searchHandler() {
+    console.log("clicked search");
   }
 
   render() {
@@ -53,9 +76,9 @@ class App extends Component {
           </nav>
         </header>
         <section>
-          <input type="text"></input>
-          <button>Search</button>
-          <button onClick={this.clearHandler}>Clear</button>
+          <input className="input" type="text"></input>
+          <button className="input" onClick={this.searchHandler}>Search</button>
+          <button className="input" onClick={this.clearHandler}>Clear</button>
         </section>
         <section>
           <ul className="emojis">
