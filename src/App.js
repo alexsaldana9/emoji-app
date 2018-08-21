@@ -4,9 +4,15 @@ import './App.css';
 
 class App extends Component {
 
-  state = {
-    results: []
-  }
+  constructor(props){
+    super(props)
+
+    this.state = {
+      results: []
+    }
+
+    this.clearHandler = this.clearHandler.bind(this);
+  }  
 
   //https://unpkg.com/emoji.json@11.0.0/emoji.json - to get the emojis
 
@@ -20,6 +26,12 @@ class App extends Component {
 
         this.setState({results: results});
       });
+  }
+
+  clearHandler() {
+    console.log("clieck clear");
+
+    this.setState({results: []});
   }
 
   render() {
@@ -41,8 +53,11 @@ class App extends Component {
           </nav>
         </header>
         <section>
-          <input type="text" className="text-box"></input>
-          <button className="text-box">Search</button>
+          <input type="text"></input>
+          <button>Search</button>
+          <button onClick={this.clearHandler}>Clear</button>
+        </section>
+        <section>
           <ul className="emojis">
             {emojis}
           </ul>
