@@ -4,7 +4,7 @@ import './Result.css';
 
 const result = (props) => (
     <div className="Result" onClick={props.clicked}>
-        <h1>{props.title}</h1>
+        <h1>{props.keywords}</h1>
         <div className="Info">
 
         </div>
