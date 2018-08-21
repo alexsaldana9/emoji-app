@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import Result from './components/Result/Result';
-
 
 class App extends Component {
 
@@ -24,18 +22,11 @@ class App extends Component {
       });
   }
 
-
-
-  // function ShowResult(word){
-  //   if word == keywords {
-  //     console.log("Show list of emoji", results[i].char)
-  //   }
-  // }
-
   render() {
-    const results = this.state.results.map((r, idx) => {
-      return <Result key={idx} keywords={r.keywords} />
-    });
+    const emojis = this.state.results.map((r, idx) =>
+      <div key={idx}>
+        {r.keywords}
+      </div>);
 
 
     return (
@@ -52,7 +43,7 @@ class App extends Component {
           <input type="text" className="text-box"></input>
           <button className="text-box">Search</button>
           <p>list of emojis</p>
-          {results}
+          {emojis}
         </section>
       </div>
     );
