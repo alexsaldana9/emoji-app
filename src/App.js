@@ -20,30 +20,30 @@ class App extends Component {
     axios.get('https://unpkg.com/emoji.json@11.0.0/emoji.json')
       .then(response => {
         const results = response.data;
-        console.log("results: ===>", results)
-        console.log("First Item: char => ", results[0].char)
-        console.log("First Item: keywords => ", results[0].keywords)
+        // console.log("results: ===>", results)
+        // console.log("First Item: char => ", results[0].char)
+        // console.log("First Item: keywords => ", results[0].keywords)
 
         this.setState({results: results});
 
+        var options = [];
         for (let i = 0; i < results.length; i++){
           //console.log("results.keywords ==>", results[i].keywords);
           let keywordString = results[i].keywords.split(" | ");
-          console.log("STRING ===", keywordString);
+          //console.log("STRING ===", keywordString);
+
 
           var searchWord = "pilot";
-          var options = new Array;
           for (let j =0; j < keywordString.length; j++){
             if (searchWord === keywordString[j]) {
-              console.log("Object with word => ", results[i])
+              console.log("Search word => ", searchWord);
               console.log("SAME WORD => ", keywordString[j]);
               options.push(results[i]);
               console.log("Array of Options => ", options);
             }
           }
+
         }
-
-
       });
   }
 
