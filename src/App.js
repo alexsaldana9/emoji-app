@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import Suggestions from './components/Suggestions';
+
 
 class App extends Component {
 
@@ -42,7 +44,6 @@ class App extends Component {
               console.log("Array of Options => ", options);
             }
           }
-
         }
       });
   }
@@ -58,6 +59,19 @@ class App extends Component {
 
   searchHandler() {
     console.log("clicked search");
+
+  }
+
+  handleInputChange = () => {
+    this.setState({
+      results: this.search.value
+    }, () => {
+      if (this.state.results && this.state.results.length > 1) {
+        if (this.state.results.length % 2 === 0) {
+          this.get()
+        }
+      }
+    })
   }
 
   render() {
@@ -79,11 +93,20 @@ class App extends Component {
           </nav>
         </header>
         <section>
-          <input className="input" type="text"></input>
+          <input
+          className="input"
+          type="text"
+          placeholder="Search for..."
+          ref={input => this.search = input}
+          onChange={this.hanldeInputChange}
+          />
+
+
           <button className="input" onClick={this.searchHandler}>Search</button>
           <button className="input" onClick={this.clearHandler}>Clear</button>
         </section>
         <section>
+        <Suggestions results={this.state.results} />
           <ul className="emojis">
             {emojis}
           </ul>
